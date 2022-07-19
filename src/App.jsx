@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/react-bootstrap-submenu/dist/index.css'
+import NavBar from './components/layout/NavBar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <header className="App-header">
+      <NavBar/>
+      {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
@@ -37,7 +40,7 @@ function App() {
             Vite Docs
           </a>
         </p>
-      </header>
+       </header>*/}
     </div>
   )
 }
