@@ -4,7 +4,7 @@ import { DropdownSubmenu, NavDropdownMenu} from "react-bootstrap-submenu"
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import Logo from '../../images/bolsa_v2.jpg'
+import Logo from '../../images/layout/bolsa_v2.jpg'
 import '../layout/navBar.css'
 
 const NavBar = () => {

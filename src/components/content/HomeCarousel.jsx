@@ -1,9 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel'
-import Imagen1 from '../../images/dogchow.png'
-import Imagen2 from '../../images/perro.png'
-import '../content/carouselInicio.css'
+import Imagen1 from '../../images/layout/dogchow.png'
+import Imagen2 from '../../images/layout/perro.png'
+import '../content/homeCarousel.css'
 
-const CarouselInicio = () => {
+const HomeCarousel = () => {
     return (
         <Carousel>
             <Carousel.Item>
@@ -33,4 +33,4 @@ const CarouselInicio = () => {
     )
 }
 
-export default CarouselInicio
+export default HomeCarousel
