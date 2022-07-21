@@ -1,0 +1,39 @@
+nav {
+    background: #ffffff;
+}
+
+.logo-image{
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+.bg-green{
+    background-color: #c0c56b;
+}
+
+.dropdown-item:active{
+    background-color: #c0c56b !important;
+}
+
+.icon-top-menu{
+    padding: 0 7px;
+    color: #34393e;
+    font-size: 23px;
+}
+
+.badge-icon{
+    border-radius: 50rem;
+    transform: translate(-50%, -50%);
+    left: 100%;
+    top: 0;
+    padding: 0.35em 0.65em;
+    font-size: .50em;
+    font-weight: 500;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+

@@ -1,14 +1,15 @@
-import Container from 'react-bootstrap/Container';
-import { DropdownSubmenu, NavDropdownMenu} from "react-bootstrap-submenu";
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import CartWidget from './CartWidget'
+import Container from 'react-bootstrap/Container'
+import { DropdownSubmenu, NavDropdownMenu} from "react-bootstrap-submenu"
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 import Logo from '../../images/bolsa_v2.jpg'
-import '../layout/css/navBar.css'
+import '../layout/navBar.css'
 
 const NavBar = () => {
     return (
-        <Navbar expand="md">
+        <Navbar expand="lg" className='p-0' sticky="top">
             <Container>
                 <Navbar.Brand href="#inicio">
                     <img
@@ -101,6 +102,7 @@ const NavBar = () => {
                         </NavDropdownMenu>
                         <Nav.Link href="#inicio">Peluquería</Nav.Link>
                     </Nav>
+                    <CartWidget/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

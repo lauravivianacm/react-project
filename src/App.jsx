@@ -3,6 +3,7 @@ import './App.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/react-bootstrap-submenu/dist/index.css'
 import NavBar from './components/layout/NavBar'
+import CarouselInicio from './components/content/CarouselInicio'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
+      <CarouselInicio/>
       {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
