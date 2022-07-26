@@ -6,52 +6,14 @@ import NavBar from './components/layout/NavBar'
 import HomeCarousel from './components/content/HomeCarousel'
 import ItemListContainer from './components/content/ItemListContainer'
 
-function App(datos) {
+function App() {
   const [count, setCount] = useState(0)
-  datos = [
-            {
-              'nombre' : 'Dog Chow',
-              'imagen' : '/src/images/cards/Dog-Chow-Cachorros.jpg',
-              'precio' : '120.000',
-              'stock' : '5'
-            },
-            {
-              'nombre' : 'Pedigree Adulto',
-              'imagen' : '/src/images/cards/PEDIGREE-ADULTO-CARNE.png',
-              'precio' : '120.000',
-              'stock' : '7'
-            },
-            {
-              'nombre' : 'NutreCan',
-              'imagen' : '/src/images/cards/NutreCan.jpg',
-              'precio' : '120.000',
-              'stock' : '4'
-            },
-            {
-              'nombre' : 'Chunky',
-              'imagen' : '/src/images/cards/Chunky.jpg',
-              'precio' : '120.000',
-              'stock' : '3'
-            },
-            {
-              'nombre' : 'Ringo',
-              'imagen' : '/src/images/cards/Ringo.jpg',
-              'precio' : '120.000',
-              'stock' : '8'
-            },
-            {
-              'nombre' : 'SmartPet',
-              'imagen' : '/src/images/cards/Smart-Pet.jpg',
-              'precio' : '120.000',
-              'stock' : '9'
-            },
-          ];
 
   return (
     <div className="App">
       <NavBar/>
       <HomeCarousel/>
-      <ItemListContainer datos={datos} categoria={'COMIDA PARA PERROS'}/>
+      <ItemListContainer categoria={'COMIDA PARA PERROS'}/>
       {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
