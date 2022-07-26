@@ -12,32 +12,38 @@ function App(datos) {
             {
               'nombre' : 'Dog Chow',
               'imagen' : '/src/images/cards/Dog-Chow-Cachorros.jpg',
-              'precio' : '120.000'
+              'precio' : '120.000',
+              'stock' : '5'
             },
             {
               'nombre' : 'Pedigree Adulto',
               'imagen' : '/src/images/cards/PEDIGREE-ADULTO-CARNE.png',
-              'precio' : '120.000'
+              'precio' : '120.000',
+              'stock' : '7'
             },
             {
-            'nombre' : 'NutreCan',
-            'imagen' : '/src/images/cards/NutreCan.jpg',
-            'precio' : '120.000'
+              'nombre' : 'NutreCan',
+              'imagen' : '/src/images/cards/NutreCan.jpg',
+              'precio' : '120.000',
+              'stock' : '4'
             },
             {
-            'nombre' : 'Chunky',
-            'imagen' : '/src/images/cards/Chunky.jpg',
-            'precio' : '120.000'
+              'nombre' : 'Chunky',
+              'imagen' : '/src/images/cards/Chunky.jpg',
+              'precio' : '120.000',
+              'stock' : '3'
             },
             {
-            'nombre' : 'Ringo',
-            'imagen' : '/src/images/cards/Ringo.jpg',
-            'precio' : '120.000'
+              'nombre' : 'Ringo',
+              'imagen' : '/src/images/cards/Ringo.jpg',
+              'precio' : '120.000',
+              'stock' : '8'
             },
             {
-            'nombre' : 'SmartPet',
-            'imagen' : '/src/images/cards/Smart-Pet.jpg',
-            'precio' : '120.000'
+              'nombre' : 'SmartPet',
+              'imagen' : '/src/images/cards/Smart-Pet.jpg',
+              'precio' : '120.000',
+              'stock' : '9'
             },
           ];
 

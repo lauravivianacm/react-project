@@ -8,8 +8,14 @@ const ItemListContainer = ({datos, categoria}) => {
         <Container className='mt-5'>
             <Row xs={1} md={2} lg={3} className="g-4">
                 {datos.map((data, i) => (
-                    <Col>
-                        <ItemCard imagen={data.imagen} categoria={categoria} nombre={data.nombre} precio={data.precio}/>
+                    <Col key={i}>
+                        <ItemCard 
+                            imagen={data.imagen} 
+                            categoria={categoria} 
+                            nombre={data.nombre} 
+                            precio={data.precio} 
+                            stock={data.stock}
+                        />
                     </Col>
                 ))}
                 </Row>

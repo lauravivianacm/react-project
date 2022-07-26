@@ -8,10 +8,6 @@ nav {
     max-width: 300px;
 }
 
-.bg-green{
-    background-color: #c0c56b;
-}
-
 .dropdown-item:active{
     background-color: #c0c56b !important;
 }

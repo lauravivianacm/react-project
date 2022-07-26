@@ -40,3 +40,21 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+/*Colores App*/
+
+.bg-green{
+  background-color: #b1d300 !important;
+}
+
+.bg-grey{
+  background-color: #f3f5f9 !important;
+}
+
+.bg-grey-dark{
+  background-color: #2c3632 !important;
+}
+
+.font-semibold {
+  font-weight: 600;
+}

@@ -1,0 +1,31 @@
+.quantity-text{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 100%;
+    display: inline-flex;
+}
+
+.quantity-container{
+    align-items: center;
+    height: 2.75rem;
+    
+}
+
+.quantity-button{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.8);
+    border: none;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.quantity-button:hover {
+    box-shadow: 0 0 300px 300px #d3d4d6 inset;
+}
