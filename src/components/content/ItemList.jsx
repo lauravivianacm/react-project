@@ -8,6 +8,7 @@ const ItemList = ({datos, categoria}) => {
             {datos.map((data, i) => (
                 <Col key={i}>
                     <ItemCard 
+                        id={data.id}
                         imagen={data.imagen} 
                         categoria={categoria} 
                         nombre={data.nombre} 

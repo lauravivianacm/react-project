@@ -1,0 +1,42 @@
+[{
+    "id" : "1",
+    "nombre" : "Dog Chow",
+    "imagen" : "/src/images/cards/Dog-Chow-Cachorros.jpg",
+    "precio" : "120.000",
+    "stock" : "5"
+},
+{
+    "id" : "2",
+    "nombre" : "Pedigree Adulto",
+    "imagen" : "/src/images/cards/PEDIGREE-ADULTO-CARNE.png",
+    "precio" : "120.000",
+    "stock" : "7"
+},
+{
+    "id" : "3",
+    "nombre" : "NutreCan",
+    "imagen" : "/src/images/cards/NutreCan.jpg",
+    "precio" : "120.000",
+    "stock" : "4"
+},
+{
+    "id" : "4",
+    "nombre" : "Chunky",
+    "imagen" : "/src/images/cards/Chunky.jpg",
+    "precio" : "120.000",
+    "stock" : "3"
+},
+{
+    "id" : "5",
+    "nombre" : "Ringo",
+    "imagen" : "/src/images/cards/Ringo.jpg",
+    "precio" : "120.000",
+    "stock" : "8"
+},
+{
+    "id" : "6",
+    "nombre" : "SmartPet",
+    "imagen" : "/src/images/cards/Smart-Pet.jpg",
+    "precio" : "120.000",
+    "stock" : "9"
+}]

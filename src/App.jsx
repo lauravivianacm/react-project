@@ -5,6 +5,7 @@ import '../node_modules/react-bootstrap-submenu/dist/index.css'
 import NavBar from './components/layout/NavBar'
 import HomeCarousel from './components/content/HomeCarousel'
 import ItemListContainer from './components/content/ItemListContainer'
+import ItemDetailContainer from './components/content/ItemDetailContainer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
       <NavBar/>
       <HomeCarousel/>
       <ItemListContainer categoria={'COMIDA PARA PERROS'}/>
+      <ItemDetailContainer idSelectedItem={3}/>
       {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>

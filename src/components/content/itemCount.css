@@ -10,8 +10,8 @@
 
 .quantity-container{
     align-items: center;
-    height: 2.75rem;
-    
+    height: 3.5rem;
+    border-radius: 0.25rem;
 }
 
 .quantity-button{
