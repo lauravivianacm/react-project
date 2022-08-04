@@ -2,12 +2,19 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../content/itemDetail.css'
-import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 import ItemCount from '../content/ItemCount'
-import {BsFillCartPlusFill} from "react-icons/bs"
+import {BsFillCartPlusFill, BsCart4} from "react-icons/bs"
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
+    const[addedToCart, setAddedToCart] = useState(false);
+
+    const onAdd = () => {
+        setAddedToCart(true);
+    }
+
     return (
         <Container>
             <Row>
@@ -42,10 +49,17 @@ const ItemDetail = ({item}) => {
                     <div className="pb-2"></div>
                     <div className='pt-1'>
                         <Stack gap={2} className="col-md-12 mx-auto">
-                            <ItemCount stock={item.stock} initial="1"/>
-                            <button className='add-to-cart-button bg-green-md'>
-                                <BsFillCartPlusFill/> Añadir al carrito
-                            </button>
+                            {!addedToCart
+                                ?   <>
+                                        <ItemCount stock={item.stock} initial="1"/>
+                                        <button className='add-to-cart-button bg-green-md' onClick={onAdd}>
+                                            <BsFillCartPlusFill/> Añadir al carrito
+                                        </button>
+                                    </>
+                                :   <Link to={`/cart`} className='add-to-cart-button bg-green-md text-decoration-none'>
+                                        <BsCart4/> Ver carrito
+                                    </Link>
+                            }
                         </Stack>
                     </div>
                 </Col>

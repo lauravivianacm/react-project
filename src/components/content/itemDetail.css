@@ -53,7 +53,25 @@
     font-weight: 600;
     border-radius: 0.25rem;
     justify-content: center;
+    text-align: center;
     color: #ffffff;
     height: 3.5rem;
-    border: 2px solid #699b2c;
+    border: 1px solid #699b2c;
+    transition: box-shadow .3s;
 }
+
+.add-to-cart-button:hover{
+    border: 1px solid #7ea352;
+    background-color: #7ea352;
+}
+
+.text-button{
+    text-align: center;
+}
+
+a:visited,
+a:focus{
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
