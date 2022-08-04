@@ -6,12 +6,13 @@ import dogFoodList from '../data/dogFoodList.json'
 import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
-    const[datos, setDatos] = useState([]);
-
+    //const[datos, setDatos] = useState([]);
+    const[component, setComponent] = useState('');
     const { idCategoria } = useParams();
      
     useEffect(()=>{
-        const dataPromise = new Promise((resolve, reject) => { 
+        const dataPromise = new Promise((resolve, reject) => {
+            setComponent(<Loader/>); 
             const condition = dogFoodList.length > 0;   
             if(condition) {
                 setTimeout(function(){
@@ -28,7 +29,8 @@ const ItemListContainer = () => {
 
         dataPromise
         .then((data) => {
-            setDatos(data);
+            //setDatos(data);
+            setComponent(<ItemList  datos={data}/>); 
         })
         .catch((error) => { 
             console.log("Error:" + error);
@@ -38,10 +40,11 @@ const ItemListContainer = () => {
 
     return (
         <Container className='mt-5'> {/*Flex by default, fluid to expand*/}
-            {datos.length > 0
+            {component}
+            {/*datos.length > 0
                 ? <ItemList  datos={datos}/>
                 : <Loader/>
-            }
+            */}
         </Container>
     )
 }
