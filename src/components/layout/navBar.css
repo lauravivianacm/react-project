@@ -33,3 +33,7 @@ nav {
     vertical-align: baseline;
 }
 
+.disabled-link {
+    pointer-events: none;
+}
+

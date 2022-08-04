@@ -3,22 +3,29 @@ import Container from 'react-bootstrap/Container'
 import Loader from '../layout/Loader';
 import ItemList from './ItemList';
 import dogFoodList from '../data/dogFoodList.json'
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({categoria}) => {
+const ItemListContainer = () => {
     const[datos, setDatos] = useState([]);
 
-    const dataPromise = new Promise((resolve, reject) => { 
-        const condition = dogFoodList.length > 0;   
-        if(condition) {
-            setTimeout(function(){
-                resolve(dogFoodList);
-            }, 2000);
-        } else {    
-            reject('No se encontró ningún artículo.');  
-        }
-    });
+    const { idCategoria } = useParams();
+     
+    useEffect(()=>{
+        const dataPromise = new Promise((resolve, reject) => { 
+            const condition = dogFoodList.length > 0;   
+            if(condition) {
+                setTimeout(function(){
+                    if (!idCategoria) {
+                        resolve(dogFoodList);
+                    }else{
+                        resolve(dogFoodList.filter(obj => obj.id_categoria_comida == idCategoria));
+                    }
+                }, 2000);
+            } else {    
+                reject('No se encontró ningún artículo.');  
+            }
+        });
 
-    const getData = function() {
         dataPromise
         .then((data) => {
             setDatos(data);
@@ -26,16 +33,13 @@ const ItemListContainer = ({categoria}) => {
         .catch((error) => { 
             console.log("Error:" + error);
         })
-    }
-     
-    useEffect(()=>{
-        getData();
-    },[])
+
+    },[idCategoria])
 
     return (
-        <Container className='mt-5'>
+        <Container className='mt-5'> {/*Flex by default, fluid to expand*/}
             {datos.length > 0
-                ? <ItemList  datos={datos} categoria={categoria}/>
+                ? <ItemList  datos={datos}/>
                 : <Loader/>
             }
         </Container>

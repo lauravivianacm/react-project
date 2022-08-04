@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/react-bootstrap-submenu/dist/index.css'
@@ -12,41 +13,17 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
-      <HomeCarousel/>
-      <ItemListContainer categoria={'COMIDA PARA PERROS'}/>
-      <ItemDetailContainer idSelectedItem={3}/>
-      {/*<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-       </header>*/}
+      <BrowserRouter>
+        <NavBar/>
+        <HomeCarousel/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer />}/>
+          <Route path='/categoria/:idCategoria' element={<ItemListContainer />}/>
+          <Route path='/item/:idItem' element={<ItemDetailContainer />}/>
+          <Route path='*' element={<h6>404</h6>}/>
+        </Routes>
+        
+      </BrowserRouter>
     </div>
   )
 }

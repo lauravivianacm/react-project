@@ -6,101 +6,103 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Logo from '../../images/layout/bolsa_v2.jpg'
 import '../layout/navBar.css'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <Navbar expand="lg" className='p-0' sticky="top">
             <Container>
-                <Navbar.Brand href="#inicio">
+                <Link to='/' className='navbar-brand'>
                     <img
                     src={Logo}
                     className="d-inline-block align-top logo-image"
                     />
-                </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="m-auto">
-                        <Nav.Link href="#inicio">Inicio</Nav.Link>
+                        <Link to='/' className='nav-link'>Inicio</Link>
                         {/*Alimentos*/}
                         <NavDropdownMenu title="Alimentos">
-                            <DropdownSubmenu href="#action/.." title="Mascota">
-                                <NavDropdown.Item href="#action/..">Perro</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Gato</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Aves</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Peces</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Roedores</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Caballos</NavDropdown.Item>
+                            <DropdownSubmenu title="Mascota">
+                                {/*Clases del NavDropdown.Item*/}
+                                <Link to='/categoria/comida_perro' data-rr-ui-dropdown-item className='dropdown-item'>Perro</Link>
+                                <Link to='/categoria/comida_gato' data-rr-ui-dropdown-item className='dropdown-item'>Gato</Link>
+                                <NavDropdown.Item href="#" className='disabled-link'>Aves</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Peces</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Roedores</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Caballos</NavDropdown.Item>
                             </DropdownSubmenu>
-                            <DropdownSubmenu href="#action/.." title="Edad">
-                                <NavDropdown.Item href="#action/..">Cachorro</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Adulto</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Adulto Mayor</NavDropdown.Item>
+                            <DropdownSubmenu title="Edad">
+                                <NavDropdown.Item href="#" className='disabled-link'>Cachorro</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Adulto</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Adulto Mayor</NavDropdown.Item>
                             </DropdownSubmenu>
-                            <DropdownSubmenu href="#action/.." title="Tipo">
-                                <NavDropdown.Item href="#action/..">Seco</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Humedo</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Medicado</NavDropdown.Item>
+                            <DropdownSubmenu title="Tipo">
+                                <NavDropdown.Item href="#" className='disabled-link'>Seco</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Humedo</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Medicado</NavDropdown.Item>
                             </DropdownSubmenu>
-                            <DropdownSubmenu href="#action/.." title="Marca">
-                                <NavDropdown.Item href="#action/..">Hill's</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Monello</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Dog Chow</NavDropdown.Item>
+                            <DropdownSubmenu title="Marca">
+                                <NavDropdown.Item href="#" className='disabled-link'>Hill's</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Monello</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Dog Chow</NavDropdown.Item>
                             </DropdownSubmenu>
-                            <DropdownSubmenu href="#action/.." title="Necesidad">
-                                <NavDropdown.Item href="#action/..">Renal</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Piel</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Light</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Cardiaco</NavDropdown.Item>
+                            <DropdownSubmenu title="Necesidad">
+                                <NavDropdown.Item href="#" className='disabled-link'>Renal</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Piel</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Light</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Cardiaco</NavDropdown.Item>
                             </DropdownSubmenu>
                         </NavDropdownMenu>
-                        {/*Alimentos*/}
+                        {/*Aseo y Belleza*/}
                         <NavDropdownMenu title="Aseo y Belleza">
-                            <DropdownSubmenu href="#action/.." title="Mascota">
-                                <NavDropdown.Item href="#action/..">Perro</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Gato</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Aves</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Peces</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Roedores</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Caballos</NavDropdown.Item>
+                            <DropdownSubmenu title="Mascota">
+                                <NavDropdown.Item href="#" className='disabled-link'>Perro</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Gato</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Aves</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Peces</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Roedores</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Caballos</NavDropdown.Item>
                             </DropdownSubmenu>
-                            <DropdownSubmenu href="#action/.." title="Accesorios de Aseo">
-                                <NavDropdown.Item href="#action/..">Cortauñas</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Cepillos</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Higine Bucal</NavDropdown.Item>
+                            <DropdownSubmenu title="Accesorios de Aseo">
+                                <NavDropdown.Item href="#" className='disabled-link'>Cortauñas</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Cepillos</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Higine Bucal</NavDropdown.Item>
                             </DropdownSubmenu>
-                            <DropdownSubmenu href="#action/.." title="Otros">
-                                <NavDropdown.Item href="#action/..">Areneros</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Arena</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Baño</NavDropdown.Item>
+                            <DropdownSubmenu title="Otros">
+                                <NavDropdown.Item href="#" className='disabled-link'>Areneros</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Arena</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Baño</NavDropdown.Item>
                             </DropdownSubmenu>
                         </NavDropdownMenu>
                         {/*Accesorios*/}
                         <NavDropdownMenu title="Accesorios">
-                            <DropdownSubmenu href="#action/.." title="Mascota">
-                                <NavDropdown.Item href="#action/..">Perro</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Gato</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Aves</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Peces</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Roedores</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Caballos</NavDropdown.Item>
+                            <DropdownSubmenu title="Mascota">
+                                <NavDropdown.Item href="#" className='disabled-link'>Perro</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Gato</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Aves</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Peces</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Roedores</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Caballos</NavDropdown.Item>
                             </DropdownSubmenu>
                         </NavDropdownMenu>
                         {/*Salud*/}
                         <NavDropdownMenu title="Salud">
-                            <DropdownSubmenu href="#action/.." title="Mascota">
-                                <NavDropdown.Item href="#action/..">Perro</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Gato</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Aves</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Peces</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Roedores</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Caballos</NavDropdown.Item>
+                            <DropdownSubmenu title="Mascota">
+                                <NavDropdown.Item href="#" className='disabled-link'>Perro</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Gato</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Aves</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Peces</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Roedores</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Caballos</NavDropdown.Item>
                             </DropdownSubmenu>
-                            <DropdownSubmenu href="#action/.." title="Antiparasitarios">
-                                <NavDropdown.Item href="#action/..">Internos</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/..">Externos</NavDropdown.Item>
+                            <DropdownSubmenu title="Antiparasitarios">
+                                <NavDropdown.Item href="#" className='disabled-link'>Internos</NavDropdown.Item>
+                                <NavDropdown.Item href="#" className='disabled-link'>Externos</NavDropdown.Item>
                             </DropdownSubmenu>
                         </NavDropdownMenu>
-                        <Nav.Link href="#inicio">Peluquería</Nav.Link>
+                        <Nav.Link href="#" className='disabled-link'>Peluquería</Nav.Link>
                     </Nav>
                     <CartWidget/>
                 </Navbar.Collapse>

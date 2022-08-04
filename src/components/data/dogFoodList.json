@@ -3,40 +3,79 @@
     "nombre" : "Dog Chow",
     "imagen" : "/src/images/cards/Dog-Chow-Cachorros.jpg",
     "precio" : "120.000",
-    "stock" : "5"
+    "stock" : "5",
+    "id_categoria_comida" : "comida_perro",
+    "nombre_categoria_comida" : "COMIDA PARA PERROS"
 },
 {
     "id" : "2",
     "nombre" : "Pedigree Adulto",
     "imagen" : "/src/images/cards/PEDIGREE-ADULTO-CARNE.png",
-    "precio" : "120.000",
-    "stock" : "7"
+    "precio" : "90.000",
+    "stock" : "7",
+    "id_categoria_comida" : "comida_perro",
+    "nombre_categoria_comida" : "COMIDA PARA PERROS"
 },
 {
     "id" : "3",
     "nombre" : "NutreCan",
     "imagen" : "/src/images/cards/NutreCan.jpg",
-    "precio" : "120.000",
-    "stock" : "4"
+    "precio" : "100.000",
+    "stock" : "4",
+    "id_categoria_comida" : "comida_perro",
+    "nombre_categoria_comida" : "COMIDA PARA PERROS"
 },
 {
     "id" : "4",
-    "nombre" : "Chunky",
-    "imagen" : "/src/images/cards/Chunky.jpg",
-    "precio" : "120.000",
-    "stock" : "3"
+    "nombre" : "Hills Cat",
+    "imagen" : "/src/images/cards/HillsCat.jpg",
+    "precio" : "150.000",
+    "stock" : "2",
+    "id_categoria_comida" : "comida_gato",
+    "nombre_categoria_comida" : "COMIDA PARA GATOS"
 },
 {
     "id" : "5",
-    "nombre" : "Ringo",
-    "imagen" : "/src/images/cards/Ringo.jpg",
-    "precio" : "120.000",
-    "stock" : "8"
+    "nombre" : "Chunky",
+    "imagen" : "/src/images/cards/Chunky.jpg",
+    "precio" : "110.000",
+    "stock" : "3",
+    "id_categoria_comida" : "comida_perro",
+    "nombre_categoria_comida" : "COMIDA PARA PERROS"
 },
 {
     "id" : "6",
+    "nombre" : "Ringo",
+    "imagen" : "/src/images/cards/Ringo.jpg",
+    "precio" : "80.000",
+    "stock" : "8",
+    "id_categoria_comida" : "comida_perro",
+    "nombre_categoria_comida" : "COMIDA PARA PERROS"
+},
+{
+    "id" : "7",
+    "nombre" : "Whiskas",
+    "imagen" : "/src/images/cards/WhiskasCat.jpg",
+    "precio" : "30.000",
+    "stock" : "4",
+    "id_categoria_comida" : "comida_gato",
+    "nombre_categoria_comida" : "COMIDA PARA GATOS"
+},
+{
+    "id" : "8",
     "nombre" : "SmartPet",
     "imagen" : "/src/images/cards/Smart-Pet.jpg",
-    "precio" : "120.000",
-    "stock" : "9"
+    "precio" : "200.000",
+    "stock" : "9",
+    "id_categoria_comida" : "comida_perro",
+    "nombre_categoria_comida" : "COMIDA PARA PERROS"
+},
+{
+    "id" : "9",
+    "nombre" : "Chunky Cat",
+    "imagen" : "/src/images/cards/ChunkyCat.jpg",
+    "precio" : "50.000",
+    "stock" : "6",
+    "id_categoria_comida" : "comida_gato",
+    "nombre_categoria_comida" : "COMIDA PARA GATOS"
 }]
