@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import {BsPlusLg, BsDashLg} from "react-icons/bs"
 import '../content/itemCount.css'
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, setQuantity}) => {
     const [numProducts, setNumProducts] = useState(Number(initial));
     const [disabledAdd, setDisabledAdd] = useState('');
     const [disabledReduce, setDisabledReduce] = useState('disabled');
-
 
     const onAdd = () => {
         if (numProducts < stock) {
@@ -29,6 +28,10 @@ const ItemCount = ({stock, initial}) => {
         
         numProducts < stock ? setDisabledAdd('') : setDisabledAdd('disabled');
     }
+
+    useEffect(() => {
+        setQuantity(numProducts);
+    },[numProducts])
 
     return (
         <div className='bg-grey d-flex justify-content-center quantity-container'>

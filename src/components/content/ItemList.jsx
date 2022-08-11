@@ -8,12 +8,7 @@ const ItemList = ({datos}) => {
             {datos.map((data, i) => (
                 <Col key={i}>
                     <ItemCard 
-                        id={data.id}
-                        imagen={data.imagen} 
-                        categoria={data.nombre_categoria_comida} 
-                        nombre={data.nombre}
-                        precio={data.precio} 
-                        stock={data.stock}
+                        item={data}
                     />
                 </Col>
             ))}

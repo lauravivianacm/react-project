@@ -4,15 +4,20 @@ import Col from 'react-bootstrap/Col';
 import '../content/itemDetail.css'
 import Stack from 'react-bootstrap/Stack';
 import ItemCount from '../content/ItemCount'
-import {BsFillCartPlusFill, BsCart4} from "react-icons/bs"
-import { useEffect, useState } from 'react';
+import { BsFillCartPlusFill, BsCart4 } from "react-icons/bs"
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { cartContext } from '../../context/CartContext';
+import ReturnHomeButton from './ReturnHomeButton';
 
 const ItemDetail = ({item}) => {
-    const[addedToCart, setAddedToCart] = useState(false);
+    const [addedToCart, setAddedToCart] = useState(false);
+    const [quantity, setQuantity] = useState();
+    const { addItem } = useContext(cartContext);
 
     const onAdd = () => {
         setAddedToCart(true);
+        addItem(item, quantity);
     }
 
     return (
@@ -51,14 +56,17 @@ const ItemDetail = ({item}) => {
                         <Stack gap={2} className="col-md-12 mx-auto">
                             {!addedToCart
                                 ?   <>
-                                        <ItemCount stock={item.stock} initial="1"/>
-                                        <button className='add-to-cart-button bg-green-md' onClick={onAdd}>
+                                        <ItemCount stock={item.stock} initial="1" setQuantity={setQuantity}/>
+                                        <button className='item-detail-button bg-green-md' onClick={onAdd}>
                                             <BsFillCartPlusFill/> Añadir al carrito
                                         </button>
                                     </>
-                                :   <Link to={`/cart`} className='add-to-cart-button bg-green-md text-decoration-none'>
-                                        <BsCart4/> Ver carrito
-                                    </Link>
+                                :   <>
+                                        <Link to={`/cart`} className='item-detail-button bg-green-md text-decoration-none'>
+                                            <BsCart4/> Ver carrito
+                                        </Link>
+                                        <ReturnHomeButton/>
+                                    </>
                             }
                         </Stack>
                     </div>

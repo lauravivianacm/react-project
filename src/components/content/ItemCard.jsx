@@ -4,26 +4,26 @@ import '../content/itemCard.css'
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
 
-const ItemCard = ({id, imagen, categoria, nombre, precio, stock}) => {
+const ItemCard = ({item}) => {
     
     return (
         <>
             <Card className='item-card'>
-                <Link to={`/item/${id}`}>
-                    <Card.Img variant="top" src={imagen} />
+                <Link to={`/item/${item.id}`}>
+                    <Card.Img variant="top" src={item.imagen} />
                 </Link>
                 <Card.Body>
-                    <Card.Subtitle className='mt-2'>{categoria}</Card.Subtitle>
-                    <Link to={`/item/${id}`}>
-                        <Card.Title className='mt-1'>{nombre}</Card.Title>
+                    <Card.Subtitle className='mt-2'>{item.categoria}</Card.Subtitle>
+                    <Link to={`/item/${item.id}`}>
+                        <Card.Title className='mt-1'>{item.nombre}</Card.Title>
                     </Link>
                     <Card.Text className='mt-1'>
-                        {precio}
+                        {item.precio}
                         <br />
-                        Unidades disponibles: {stock}
+                        Unidades disponibles: {item.stock}
                         <br />
                     </Card.Text>
-                    <ItemCount stock={stock} initial="1"/>
+                    {/*<ItemCount stock={item.stock} initial="1"/>*/}
                 </Card.Body>
             </Card>
         </>
