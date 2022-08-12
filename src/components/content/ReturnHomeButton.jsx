@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import '../content/itemDetail.css'
 import { BsCaretLeftFill } from "react-icons/bs"
 
-const ReturnHomeButton = () => {
+const ReturnHomeButton = ({label}) => {
     
     return (
         <Link to={`/`} className='return-button text-decoration-none'>
-            <BsCaretLeftFill/> Seguir comprando
+            <BsCaretLeftFill/> {label}
         </Link>
     )
 }

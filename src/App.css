@@ -41,6 +41,10 @@ button {
   font-size: calc(10px + 2vmin);
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 /*Colores App*/
 
 .bg-green{

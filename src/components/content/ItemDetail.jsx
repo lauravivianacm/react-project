@@ -65,7 +65,7 @@ const ItemDetail = ({item}) => {
                                         <Link to={`/cart`} className='item-detail-button bg-green-md text-decoration-none'>
                                             <BsCart4/> Ver carrito
                                         </Link>
-                                        <ReturnHomeButton/>
+                                        <ReturnHomeButton label='Seguir comprando'/>
                                     </>
                             }
                         </Stack>

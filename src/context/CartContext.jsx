@@ -3,6 +3,10 @@ export const cartContext = createContext();
 
 const CartContext = ({children}) => {
     const [cartItems, setCartItems] = useState([]);
+    const [cartWidgetValue, setCartWidgetValue] = useState(0);
+
+    console.log(cartItems);
+    console.log(cartWidgetValue);
 
     const addItem = (item, quantity) => {
         let newItem;
@@ -15,7 +19,6 @@ const CartContext = ({children}) => {
             newItem = [...cartItems, product];
         }
         setCartItems(newItem);
-        console.log(cartItems);
     }
 
     const isInCart = (idItem) => {
@@ -24,16 +27,50 @@ const CartContext = ({children}) => {
         return item;
     }
 
-    const removeItem = () => {
+    const updateQuantityItem = (idItem, quantity) => {
+        let newItem;
+        let product = isInCart(idItem);
+        if (product) {
+            product.quantity = quantity;
+            newItem = [...cartItems];
+            setCartItems(newItem);
+        }
+    }
 
+    const removeItem = (idItem) => {
+        const newCartItems = cartItems.filter(product => {
+            return product.id !== idItem;
+        });
+        setCartItems(newCartItems);
     }
 
     const clear = () => {
+        setCartItems([]);
         
     }
 
+    const getCartWidgetValue = () => {
+        let total = 0;
+        for(let i=0; i < cartItems.length; i++){
+            total += cartItems[i].quantity;
+        }
+        setCartWidgetValue(total);
+    }
+
+    useEffect(() => {
+        getCartWidgetValue();
+    },[cartItems])
+
     return (
-        <cartContext.Provider value={{cartItems, setCartItems, addItem}}>
+        <cartContext.Provider value={{
+            cartItems, 
+            setCartItems, 
+            addItem, 
+            removeItem, 
+            clear, 
+            updateQuantityItem,
+            cartWidgetValue
+        }}>
             {children}
         </cartContext.Provider>
     )

@@ -6,6 +6,7 @@ const ItemCount = ({stock, initial, setQuantity}) => {
     const [numProducts, setNumProducts] = useState(Number(initial));
     const [disabledAdd, setDisabledAdd] = useState('');
     const [disabledReduce, setDisabledReduce] = useState('disabled');
+    const minProducts = 1;
 
     const onAdd = () => {
         if (numProducts < stock) {
@@ -15,11 +16,11 @@ const ItemCount = ({stock, initial, setQuantity}) => {
             setDisabledAdd('disabled');
         }
 
-        numProducts >= initial ? setDisabledReduce('') : setDisabledReduce('disabled');
+        numProducts >= minProducts ? setDisabledReduce('') : setDisabledReduce('disabled');
     }
 
     const onReduce = () => {
-        if (numProducts > initial) {
+        if (numProducts > minProducts) {
             setNumProducts(numProducts - 1);
             setDisabledReduce('');
         }else{
