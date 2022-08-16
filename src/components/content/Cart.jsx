@@ -21,7 +21,7 @@ const Cart = () => {
                             <Col xs={12} md={8}>
                                 <CartTable cartItems={cartItems}/>
                                 <div className='clean-cart-button mt-3'>
-                                    <Button variant="outline-dark" onClick={() => clear()}>
+                                    <Button variant="outline-dark" className='mb-3' onClick={() => clear()}>
                                         <BsFillTrashFill/> Limpiar carrito
                                     </Button>
                                 </div>

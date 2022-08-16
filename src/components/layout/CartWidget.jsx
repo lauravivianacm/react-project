@@ -13,7 +13,7 @@ const CartWidget = () => {
         <Nav className="mr-auto">
             <Link to={`/cart`} className="icon-top-menu">
                 <BsCart3 />
-                <span className="badge-icon badge bg-green"> {cartWidgetValue} </span>
+                {cartWidgetValue > 0 && <span className="badge-icon badge bg-green"> {cartWidgetValue} </span>}
             </Link>
             <Link to={`/`} className="icon-top-menu">
                 <BsSearch />

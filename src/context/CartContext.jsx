@@ -4,9 +4,11 @@ export const cartContext = createContext();
 const CartContext = ({children}) => {
     const [cartItems, setCartItems] = useState([]);
     const [cartWidgetValue, setCartWidgetValue] = useState(0);
+    const [cartTotalValue, setCartTotalValue] = useState(0);
 
     console.log(cartItems);
     console.log(cartWidgetValue);
+    console.log(cartTotalValue);
 
     const addItem = (item, quantity) => {
         let newItem;
@@ -49,16 +51,19 @@ const CartContext = ({children}) => {
         
     }
 
-    const getCartWidgetValue = () => {
-        let total = 0;
+    const getCartTotals = () => {
+        let totalWidget = 0;
+        let totalCart = 0;
         for(let i=0; i < cartItems.length; i++){
-            total += cartItems[i].quantity;
+            totalWidget += cartItems[i].quantity;
+            totalCart += cartItems[i].quantity * cartItems[i].precio;
         }
-        setCartWidgetValue(total);
+        setCartWidgetValue(totalWidget);
+        setCartTotalValue(totalCart);
     }
 
     useEffect(() => {
-        getCartWidgetValue();
+        getCartTotals();
     },[cartItems])
 
     return (
@@ -69,7 +74,8 @@ const CartContext = ({children}) => {
             removeItem, 
             clear, 
             updateQuantityItem,
-            cartWidgetValue
+            cartWidgetValue,
+            cartTotalValue
         }}>
             {children}
         </cartContext.Provider>

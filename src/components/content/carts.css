@@ -10,7 +10,15 @@
     color: #323232 !important;
 }
 
-.cart-table, tbody, td{
+.cart-table > tbody{
+    vertical-align: middle;
+    line-height: 1.5em;
+    text-align: left;
+    border-top: 1px solid #e7e7e7 !important;
+    padding: 16px 12px;
+}
+
+.cart-table > tbody > tr > td{
     vertical-align: middle;
     line-height: 1.5em;
     text-align: left;
@@ -55,3 +63,55 @@
     font-weight: 600px;
     text-align: center;
 }
+
+.table-shops{
+    text-align: left;
+    width: 100%;
+    border-collapse: separate;
+    margin: 0 -1px 20px 0;
+    padding: 0px;
+    border: none;
+    background: #fff;
+}
+
+th.subtotal-subtitle, td.subtotal  {
+    border-top: 0px;
+    font-size: 18px !important;
+}
+
+.totals-container > .table-shops > tbody > tr > th  {
+    width: 35%;
+    vertical-align: top;
+    line-height: 1.5em;
+    border: none;
+    background: 0 0;
+    text-align: left;
+    font-size: 16px;
+    color: #323232;
+    padding: 15px 20px;
+    font-weight: 600px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.totals-container > .table-shops > tbody > tr > td  {
+    vertical-align: top;
+    line-height: 1.5em;
+    border: none;
+    text-align: right;
+    font-size: 16px;
+    color: #323232;
+    padding: 20px;
+    font-weight: 600px;
+    border-top: 1px solid #e8e8e8;
+}
+
+th.total-subtitle, td.total  {
+    border-top: 0px;
+    font-size: 18px !important;
+}
+
+td.total > strong {
+    color: #b1d300;
+}
+
+
