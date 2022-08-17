@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import dogFoodList from '../data/dogFoodList.json'
 import ItemDetail from "./ItemDetail";
 import { useParams } from 'react-router-dom';
+import { doc, getDoc, getFirestore } from 'firebase/firestore' 
 
 const ItemDetailContainer = () => {
     const [show, setShow] = useState(false);
@@ -12,20 +13,21 @@ const ItemDetailContainer = () => {
 
     useEffect(()=>{
         const itemDetailPromise = new Promise((resolve, reject) => {
-            let item = dogFoodList.filter(obj => obj.id == idItem);
-            if(item[0] != undefined) {
-                setTimeout(function(){
-                    resolve(item[0]);
-                }, 2000);
-            } else {    
-                reject('No se encontró ningún artículo.');  
-            }
+            const db = getFirestore();
+            const item = doc(db, 'items', idItem);
+            getDoc(item).then((res) => {
+                if (res.data() != undefined) {
+                    setSelectedItem({id: res.id, ...res.data()});
+                    resolve(true);
+                } else {    
+                    reject('No se encontró ningún artículo.');  
+                }
+            });
         });
 
         itemDetailPromise
-        .then((item) => {
-            setSelectedItem(item);
-            setShow(true);
+        .then((boolShow) => {
+            setShow(boolShow);
         })
         .catch((error) => { 
             console.log("Error:" + error);

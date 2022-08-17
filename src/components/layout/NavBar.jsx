@@ -7,8 +7,25 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Logo from '../../images/layout/bolsa_v2.jpg'
 import '../layout/navBar.css'
 import { Link } from 'react-router-dom';
+import { collection, getDocs, getFirestore } from 'firebase/firestore' 
+import { useEffect, useState } from 'react'
 
 const NavBar = () => {
+    const[categorias, setCategorias] = useState([]);
+
+    useEffect(() => {
+        const db = getFirestore();
+        const itemsCollection = collection(db, 'categorias');
+        getDocs(itemsCollection).then((res) => {
+            if (res.size > 0) {
+                let listaCategorias = res.docs;
+                setCategorias(listaCategorias.map((categoria) => {
+                    return {id: categoria.id, ...categoria.data()}
+                }));
+            }
+        });
+    },[])
+
     return (
         <Navbar expand="lg" className='p-0' sticky="top">
             <Container>
@@ -26,8 +43,9 @@ const NavBar = () => {
                         <NavDropdownMenu title="Alimentos">
                             <DropdownSubmenu title="Mascota">
                                 {/*Clases del NavDropdown.Item*/}
-                                <Link to='/categoria/comida_perro' data-rr-ui-dropdown-item className='dropdown-item'>Perro</Link>
-                                <Link to='/categoria/comida_gato' data-rr-ui-dropdown-item className='dropdown-item'>Gato</Link>
+                                {categorias.map((data, i) => (
+                                    <Link key={i} to={`/categoria/${data.id}`} data-rr-ui-dropdown-item className='dropdown-item'>{data.nombre}</Link>
+                                ))}
                                 <NavDropdown.Item href="#" className='disabled-link'>Aves</NavDropdown.Item>
                                 <NavDropdown.Item href="#" className='disabled-link'>Peces</NavDropdown.Item>
                                 <NavDropdown.Item href="#" className='disabled-link'>Roedores</NavDropdown.Item>
