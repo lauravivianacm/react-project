@@ -1,10 +1,7 @@
-import Table from 'react-bootstrap/Table';
-import { cartContext } from '../../context/CartContext';
-import { useContext } from "react";
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
-const CartTotals = () => {
-    const { cartTotalValue } = useContext(cartContext);
+const CheckoutRowTable = ({item}) => {
+    const [subTotal, setSubTotal] = useState(0);
 
     const formatoMonedaTexto = (valor) => {
         /*TIENE EN CUENTA LOS VALORES DECIMALES*/
@@ -47,44 +44,21 @@ const CartTotals = () => {
         return valor.toString().replace(/\./g, ',');
     }
 
-    return (
-        <div className='totals-container'>
-            <h2>Total Carrito</h2>
-            <Table className='table-shops'>
-                <tbody>
-                    <tr>
-                        <th className='subtotal-subtitle'>Subtotal</th>
-                        <td className='subtotal'>
-                            <strong>$ { formatoMonedaTexto(cartTotalValue) }</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th className=''>Costo envío</th>
-                        <td className=''>
-                            $ 0
-                        </td>
-                    </tr>
-                    <tr>
-                        <th className=''>Dirección envío</th>
-                        <td className=''>
-                            N.A
-                        </td>
-                    </tr>
-                    <tr>
-                        <th className='total-subtitle'>Total</th>
-                        <td className='total'>
-                            <strong>$ { formatoMonedaTexto(cartTotalValue) }</strong>
-                        </td>
-                    </tr>
-                </tbody>
-            </Table>
-            <div className='checkout-container'>
-                <Link to={`/checkout`} className='checkout-button text-decoration-none'>
-                    Terminar mi compra
-                </Link>
-            </div>
-        </div>
-    )
-}
+    useEffect(() => {
+        let total = (item.precio*item.quantity);
+        setSubTotal(total.toFixed(2));
+    },[])
 
-export default CartTotals
+    return (
+        <>
+            <td>
+                {item.nombre} <b>x {item.quantity}</b>
+            </td>
+            <td>
+                $ {formatoMonedaTexto(subTotal)}
+            </td>
+        </>
+    );
+}
+ 
+export default CheckoutRowTable;

@@ -114,4 +114,23 @@ td.total > strong {
     color: #b1d300;
 }
 
+.checkout-container .checkout-button  {
+    padding: 15px 20px;
+    font-size: 15px;
+    font-weight: 500px;
+    line-height: 26px;
+    border-radius: 0px;
+    background-color: #323232;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.checkout-container .checkout-button:hover  {
+    border: 1px solid #b1d300;
+    background-color: #b1d300;
+    color: #323232;
+}
+
 

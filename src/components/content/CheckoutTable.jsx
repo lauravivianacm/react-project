@@ -1,10 +1,9 @@
+import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
-import { cartContext } from '../../context/CartContext';
-import { useContext } from "react";
+import CheckoutRowTable from './CheckoutRowTable';
 import { Link } from 'react-router-dom';
 
-const CartTotals = () => {
-    const { cartTotalValue } = useContext(cartContext);
+const CheckoutTable = ({cartItems, cartTotalValue, placeOrder}) => {
 
     const formatoMonedaTexto = (valor) => {
         /*TIENE EN CUENTA LOS VALORES DECIMALES*/
@@ -47,44 +46,43 @@ const CartTotals = () => {
         return valor.toString().replace(/\./g, ',');
     }
 
-    return (
-        <div className='totals-container'>
-            <h2>Total Carrito</h2>
-            <Table className='table-shops'>
-                <tbody>
-                    <tr>
-                        <th className='subtotal-subtitle'>Subtotal</th>
-                        <td className='subtotal'>
-                            <strong>$ { formatoMonedaTexto(cartTotalValue) }</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th className=''>Costo envío</th>
-                        <td className=''>
-                            $ 0
-                        </td>
-                    </tr>
-                    <tr>
-                        <th className=''>Dirección envío</th>
-                        <td className=''>
-                            N.A
-                        </td>
-                    </tr>
-                    <tr>
-                        <th className='total-subtitle'>Total</th>
-                        <td className='total'>
-                            <strong>$ { formatoMonedaTexto(cartTotalValue) }</strong>
-                        </td>
-                    </tr>
-                </tbody>
-            </Table>
-            <div className='checkout-container'>
-                <Link to={`/checkout`} className='checkout-button text-decoration-none'>
-                    Terminar mi compra
-                </Link>
-            </div>
-        </div>
-    )
-}
 
-export default CartTotals
+
+    return (
+        <Col sm={12} md={5} lg={5}>
+            <div className='billing-table mt-5'>
+                <h3>Tu orden</h3>
+                <div className='div-order'>
+                    <Table responsive="md" className='table-order'>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cartItems.map((item, i) => (
+                                <tr key={i}>
+                                    <CheckoutRowTable 
+                                        item={item}
+                                    />
+                                </tr>
+                            ))}
+                            <tr>
+                                <td><h5>Total</h5></td>
+                                <td className='total'>
+                                    <strong>$ { formatoMonedaTexto(cartTotalValue) }</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                    <div className='checkout-container mb-3'>
+                        <a className='checkout-button text-decoration-none' onClick={placeOrder}> Realizar pedido </a>
+                    </div>
+                </div>
+            </div>
+        </Col>
+    );
+}
+ 
+export default CheckoutTable;

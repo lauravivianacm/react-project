@@ -5,10 +5,10 @@ import EmptyCartImg from '../../images/layout/carrito_img.png';
 const CartEmpty = () => {
     return (
         <>
-            <Col xs={8} md={8} className='empty-cart-img'>
+            <Col xs={12} md={12} lg={8} className='empty-cart-img'>
                 <img src={EmptyCartImg} className='empty-cart-img'/>
             </Col>
-            <Col xs={4} md={4} className='empty-cart-text'>
+            <Col xs={12} md={12} lg={4} className='empty-cart-text'>
                 <div className="pb-2"></div>
                 <div className='m-5'>
                     <h3>¡Tu carrito está completamente vacío!</h3>

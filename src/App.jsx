@@ -10,6 +10,7 @@ import ItemDetailContainer from './components/content/ItemDetailContainer'
 import Cart from './components/content/Cart'
 import CartContext from './context/CartContext'
 import { initializeApp } from "firebase/app";
+import Checkout from './components/content/Checkout'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBh5uouhgLR3Pvohs7ppcrPZMrlEkLaDgo",
@@ -40,6 +41,7 @@ function App() {
             <Route path='/categoria/:idCategoria' element={<ItemListContainer />}/>
             <Route path='/item/:idItem' element={<ItemDetailContainer />}/>
             <Route path='/cart' element={<Cart />}/>
+            <Route path='/checkout' element={<Checkout />}/>
             <Route path='*' element={<h6>404</h6>}/>
           </Routes>
         </BrowserRouter>
