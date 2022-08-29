@@ -11,6 +11,7 @@ import Cart from './components/content/Cart'
 import CartContext from './context/CartContext'
 import { initializeApp } from "firebase/app";
 import Checkout from './components/content/Checkout'
+import NumberContext from './context/NumberContext'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBh5uouhgLR3Pvohs7ppcrPZMrlEkLaDgo",
@@ -28,24 +29,26 @@ function App() {
 
   return (
     <div className="App">
-      <CartContext>
-        <BrowserRouter>
-          <NavBar/>
-          <Routes>
-            <Route path='/' element={
-              <>
-                <HomeCarousel/>
-                <ItemListContainer />
-              </>
-            }/>
-            <Route path='/categoria/:idCategoria' element={<ItemListContainer />}/>
-            <Route path='/item/:idItem' element={<ItemDetailContainer />}/>
-            <Route path='/cart' element={<Cart />}/>
-            <Route path='/checkout' element={<Checkout />}/>
-            <Route path='*' element={<h6>404</h6>}/>
-          </Routes>
-        </BrowserRouter>
-      </CartContext>
+      <NumberContext>
+        <CartContext>
+          <BrowserRouter>
+            <NavBar/>
+            <Routes>
+              <Route path='/' element={
+                <>
+                  <HomeCarousel/>
+                  <ItemListContainer />
+                </>
+              }/>
+              <Route path='/categoria/:idCategoria' element={<ItemListContainer />}/>
+              <Route path='/item/:idItem' element={<ItemDetailContainer />}/>
+              <Route path='/cart' element={<Cart />}/>
+              <Route path='/checkout' element={<Checkout />}/>
+              <Route path='*' element={<h6>404</h6>}/>
+            </Routes>
+          </BrowserRouter>
+        </CartContext>
+      </NumberContext>
     </div>
   )
 }
