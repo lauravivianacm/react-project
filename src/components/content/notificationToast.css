@@ -1,0 +1,12 @@
+.toast-img {
+    width: 1.5em;
+    height: auto;
+}
+
+.bg-green-toast{
+    background-color: #a8da6a;
+}
+
+.toast-container {
+    z-index: 2000;
+}

@@ -9,15 +9,18 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../context/CartContext';
 import ReturnHomeButton from './ReturnHomeButton';
+import NotificationToast from './NotificationToast';
 
 const ItemDetail = ({item}) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const [quantity, setQuantity] = useState();
     const { addItem } = useContext(cartContext);
+    const [showToast, setShowToast] = useState(false);
 
     const onAdd = () => {
         setAddedToCart(true);
         addItem(item, quantity);
+        setShowToast(true);
     }
 
     return (
@@ -62,6 +65,7 @@ const ItemDetail = ({item}) => {
                                         </button>
                                     </>
                                 :   <>
+                                        <NotificationToast show={showToast} setShow={setShowToast} message='¡Tu producto fue añadido al carrito!' classToast='bg-green-toast'/>
                                         <Link to={`/cart`} className='item-detail-button bg-green-md text-decoration-none'>
                                             <BsCart4/> Ver carrito
                                         </Link>

@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import Loader from '../layout/Loader';
 import Order from './Order';
+import NotificationToast from './NotificationToast';
 
 const Checkout = () => {
     const[validated, setValidated] = useState(true);
@@ -15,6 +16,7 @@ const Checkout = () => {
     const[buyer, setBuyer] = useState({});
     const[component, setComponent] = useState('');
     const { cartItems, cartTotalValue, clear } = useContext(cartContext);
+    const [showToast, setShowToast] = useState(false);
 
     const placeOrder = () => {
         console.log(buyer);
@@ -34,6 +36,7 @@ const Checkout = () => {
     useEffect(() => {
         if (orderId != null && validated) {
             setComponent(<Order orderId={orderId}/>);
+            setShowToast(true);
             clear();
         }
     },[orderId])
@@ -41,6 +44,7 @@ const Checkout = () => {
     if (component != '') {
         return ( 
             <Container className='mt-2'>
+                <NotificationToast show={showToast} setShow={setShowToast} message='¡Orden generada satisfactoriamente!' classToast='bg-green-toast'/>
                 <Row>
                     {component}
                 </Row>
