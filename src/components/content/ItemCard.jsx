@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import '../content/itemCard.css'
-import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
 import { numberContext } from "../../context/NumberContext";
 

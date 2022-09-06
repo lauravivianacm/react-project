@@ -63,6 +63,7 @@ const ItemDetail = ({item}) => {
                                         <button className='item-detail-button bg-green-md' onClick={onAdd}>
                                             <BsFillCartPlusFill/> Añadir al carrito
                                         </button>
+                                        <ReturnHomeButton label='Regresar al comercio'/>
                                     </>
                                 :   <>
                                         <NotificationToast show={showToast} setShow={setShowToast} message='¡Tu producto fue añadido al carrito!' classToast='bg-green-toast'/>
