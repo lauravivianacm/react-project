@@ -25,7 +25,6 @@ const ItemCard = ({item}) => {
                         Unidades disponibles: {item.stock}
                         <br />
                     </Card.Text>
-                    {/*<ItemCount stock={item.stock} initial="1"/>*/}
                 </Card.Body>
             </Card>
         </>

@@ -6,6 +6,8 @@ const CartContext = ({children}) => {
     const [cartWidgetValue, setCartWidgetValue] = useState(0);
     const [cartTotalValue, setCartTotalValue] = useState(0);
 
+    console.log(cartItems);
+
     const addItem = (item, quantity) => {
         let newItem;
         let product = isInCart(item.id);
@@ -44,7 +46,6 @@ const CartContext = ({children}) => {
 
     const clear = () => {
         setCartItems([]);
-        
     }
 
     const getCartTotals = () => {
@@ -59,7 +60,15 @@ const CartContext = ({children}) => {
     }
 
     useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('items'));
+        if (items) {
+            setCartItems(items);
+        }
+    }, []);
+
+    useEffect(() => {
         getCartTotals();
+        localStorage.setItem('items', JSON.stringify(cartItems));
     },[cartItems])
 
     return (
