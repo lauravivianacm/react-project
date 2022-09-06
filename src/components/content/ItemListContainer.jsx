@@ -45,7 +45,7 @@ const ItemListContainer = () => {
             setComponent(<ItemList  datos={data}/>); 
         })
         .catch((error) => { 
-            console.log("Error:" + error);
+            //console.log("Error:" + error);
         })
 
     },[datos])

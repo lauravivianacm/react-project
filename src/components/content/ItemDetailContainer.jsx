@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
             setShow(boolShow);
         })
         .catch((error) => { 
-            console.log("Error:" + error);
+            //console.log("Error:" + error);
         })
     },[idItem])
 

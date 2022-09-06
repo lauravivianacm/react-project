@@ -5,7 +5,7 @@ import CheckoutTable from './CheckoutTable';
 import './checkout.css';
 import { cartContext } from '../../context/CartContext';
 import { useContext, useEffect, useState } from 'react';
-import { addDoc, collection, getFirestore } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, getFirestore, writeBatch } from 'firebase/firestore'
 import Loader from '../layout/Loader';
 import Order from './Order';
 import NotificationToast from './NotificationToast';
@@ -18,18 +18,52 @@ const Checkout = () => {
     const { cartItems, cartTotalValue, clear } = useContext(cartContext);
     const [showToast, setShowToast] = useState(false);
 
+    const filterInfoItems = () => {
+        let infoItems = [];
+        cartItems.filter(product => {
+            let infoItem = {id: product.id, nombre: product.nombre, precio: product.precio, quantity: product.quantity}
+            infoItems = [...infoItems, infoItem];
+        });
+        return infoItems;
+    }
+
     const placeOrder = () => {
-        console.log(buyer);
         if (validated) { //El form se debe validar
             setComponent(<Loader/>);
             const order = { 
                 buyer,
-                items: cartItems, 
+                items: filterInfoItems(), 
                 total: cartTotalValue
             };
             const db = getFirestore();
-            const ordersCollection = collection(db, 'ordenes');
-            addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+            batchWrite(db, order);
+        }
+    }
+
+    const batchWrite = async (db, order) => {
+        const batch = writeBatch(db);
+        for (const product of order.items) {
+            if (product.id != undefined) {
+                const item = doc(db, 'items', product.id);
+                const newStock = await getDoc(item).then((res) => {
+                    if (res.data() != undefined) {
+                        return res.data().stock - product.quantity;
+                    }
+                });
+                batch.update(item, { stock: newStock });
+            }
+        }
+
+        try {
+            await batch.commit()
+            .then(() => {
+                const ordersCollection = collection(db, 'ordenes');
+                addDoc(ordersCollection, order).then(({ id }) => {
+                    setOrderId(id);
+                });
+            });
+        } catch (error) {
+            //console.log(error);
         }
     }
 

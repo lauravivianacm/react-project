@@ -6,10 +6,6 @@ const CartContext = ({children}) => {
     const [cartWidgetValue, setCartWidgetValue] = useState(0);
     const [cartTotalValue, setCartTotalValue] = useState(0);
 
-    console.log(cartItems);
-    console.log(cartWidgetValue);
-    console.log(cartTotalValue);
-
     const addItem = (item, quantity) => {
         let newItem;
         let product = isInCart(item.id);
