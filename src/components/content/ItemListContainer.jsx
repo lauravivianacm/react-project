@@ -51,7 +51,7 @@ const ItemListContainer = () => {
     },[datos])
 
     return (
-        <Container className='mt-5'> {/*Flex by default, fluid to expand*/}
+        <Container className='mt-5 mb-5'> {/*Flex by default, fluid to expand*/}
             {component}
         </Container>
     )

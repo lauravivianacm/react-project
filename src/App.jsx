@@ -4,6 +4,7 @@ import './App.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/react-bootstrap-submenu/dist/index.css'
 import NavBar from './components/layout/NavBar'
+import Footer from './components/layout/Footer'
 import HomeCarousel from './components/content/HomeCarousel'
 import ItemListContainer from './components/content/ItemListContainer'
 import ItemDetailContainer from './components/content/ItemDetailContainer'
@@ -46,6 +47,7 @@ function App() {
               <Route path='/checkout' element={<Checkout />}/>
               <Route path='*' element={<h6>404</h6>}/>
             </Routes>
+            <Footer/>
           </BrowserRouter>
         </CartContext>
       </NumberContext>

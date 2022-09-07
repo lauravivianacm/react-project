@@ -1,0 +1,13 @@
+.site-info{
+    background: whitesmoke;
+    padding: 25px 0;
+}
+
+.float-left {
+    float: left!important;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
