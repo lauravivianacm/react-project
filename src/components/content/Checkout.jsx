@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
 import CheckoutForm from './CheckoutForm';
-import CheckoutTable from './CheckoutTable';
 import './checkout.css';
 import { cartContext } from '../../context/CartContext';
 import { useContext, useEffect, useState } from 'react';
@@ -11,7 +10,6 @@ import Order from './Order';
 import NotificationToast from './NotificationToast';
 
 const Checkout = () => {
-    const[validated, setValidated] = useState(true);
     const[orderId, setOrderId] = useState(null);
     const[buyer, setBuyer] = useState({});
     const[component, setComponent] = useState('');
@@ -27,8 +25,8 @@ const Checkout = () => {
         return infoItems;
     }
 
-    const placeOrder = () => {
-        if (validated) { //El form se debe validar
+    const placeOrder = (validated) => {
+        if (validated) {
             setComponent(<Loader/>);
             const order = { 
                 buyer,
@@ -68,7 +66,7 @@ const Checkout = () => {
     }
 
     useEffect(() => {
-        if (orderId != null && validated) {
+        if (orderId != null) {
             setComponent(<Order orderId={orderId}/>);
             setShowToast(true);
             clear();
@@ -90,8 +88,8 @@ const Checkout = () => {
         <Container className='mt-2'>
             <Row>
                 {/*component*/}
-                <CheckoutForm setBuyer={setBuyer}/>
-                <CheckoutTable 
+                <CheckoutForm 
+                    setBuyer={setBuyer}
                     cartItems={cartItems} 
                     cartTotalValue={cartTotalValue} 
                     placeOrder={placeOrder}
